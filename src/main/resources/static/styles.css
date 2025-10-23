@@ -47,7 +47,7 @@ header nav a:hover {
 }
 
 /* =========================
-   Hero Section
+   Hero Section (Home Page)
 ========================= */
 .hero {
     height: 70vh;
@@ -86,154 +86,43 @@ header nav a:hover {
 }
 
 /* =========================
-   Projects Section
+   Projects & Experience Sections
 ========================= */
-.projects-section {
+.projects-section,
+.experience-section {
     padding: 120px 20px 50px 20px;
     text-align: center;
 }
 
-.projects-section h2 {
+.projects-section h2,
+.experience-section h2 {
     margin-bottom: 40px;
     font-size: 2rem;
     color: #0d1117;
 }
 
-.projects-container {
+.projects-container,
+.experience-container {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    align-items: stretch;
     gap: 25px;
 }
 
+/* =========================
+   Project Cards (No Images)
+========================= */
 .project-card {
-    max-width: 300px;  /* prevents cards from being too wide */
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    padding: 20px;
+    width: 300px;
     background-color: #fff;
     border-radius: 15px;
+    padding: 20px;
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.project-card img.project-img {
-    width: 100%;          /* fit image to card width */
-    height: 200px;        /* fixed height for alignment */
-    object-fit: contain;    /* crops excess, keeps aspect ratio */
-    border-radius: 10px;
-    display: block;
-    margin-bottom: 15px;
-}
-
-.project-card h3,
-.project-card p {
-    text-align: center;   /* center title and description */
-}
-
-.project-card .btn {
-    display: block;
-    margin: 15px auto 0 auto; /* center button */
-}
-
-
-.contact-section {
-    padding: 100px 20px 50px 20px;
-    max-width: 600px;
-    margin: 0 auto;
-}
-
-.contact-section form {
     display: flex;
     flex-direction: column;
-}
-
-.contact-section input,
-.contact-section textarea {
-    padding: 12px;
-    margin-bottom: 15px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 1rem;
-}
-
-.contact-section textarea {
-    resize: vertical;
-    min-height: 120px;
-}
-
-.contact-section .btn {
-    padding: 12px;
-    background: #58a6ff;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: background 0.3s;
-}
-
-.contact-section .btn:hover {
-    background: #0d6efd;
-}
-
-.contact-section p {
-    color: green;
-    font-weight: 600;
+    align-items: center;
     text-align: center;
 }
 
-/* =========================
-   Footer
-========================= */
-footer {
-    margin-top: 50px;
-    background: #0d1117;
-    color: #fff;
-    text-align: center;
-    padding: 20px 0;
-    font-size: 0.9rem;
-}
-
-footer .social-links {
-    margin-top: 5px;
-}
-
-footer .social-links a {
-    color: #58a6ff;
-    text-decoration: none;
-    margin: 0 8px;
-}
-
-footer .social-links a:hover {
-    text-decoration: underline;
-}
-
-/* =========================
-   Responsive Design
-========================= */
-@media (max-width: 768px) {
-    .projects-container {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    header nav {
-        font-size: 0.9rem;
-    }
-
-    .hero h2 {
-        font-size: 2rem;
-    }
-
-    .hero p {
-        font-size: 1rem;
-    }
-
-    .project-card {
-        width: 90%;
-    }
-}
+.project-card:ho

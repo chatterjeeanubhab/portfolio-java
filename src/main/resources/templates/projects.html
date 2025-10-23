@@ -11,7 +11,9 @@
     <nav>
         <a href="/">Home</a>
         <a href="/projects">Projects</a>
+        <a href="/experience">Experience</a>
         <a href="/contact">Contact</a>
+
     </nav>
 </header>
 
@@ -20,15 +22,12 @@
         <h2>My Projects</h2>
         <div class="projects-container">
             <div class="project-card" th:each="project : ${projects}">
-                <img th:src="@{/images/{img}(img=${project.image})}"
-                     alt="Project Image" class="project-img">
                 <h3 th:text="${project.name}">Project Name</h3>
                 <p th:text="${project.description}">Project Description</p>
                 <a href="#" class="btn">View Details</a>
             </div>
         </div>
     </section>
-
 </main>
 
 <footer>
