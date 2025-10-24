@@ -1,20 +1,13 @@
-# Use official Java JDK 17
-FROM openjdk:17-jdk-slim
-
-# Set working directory
+# Use Maven + JDK 17 image to build
+FROM maven:3.9.0-eclipse-temurin-17 AS build
 WORKDIR /app
+COPY pom.xml .
+COPY src ./src
+RUN mvn clean package -DskipTests
 
-# Copy everything into container
-COPY . .
-
-# Make mvnw executable (important for Linux)
-RUN chmod +x mvnw
-
-# Build the project
-RUN ./mvnw package -DskipTests
-
-# Expose the port your app runs on
+# Use JDK 17 runtime image to run
+FROM eclipse-temurin:17-jre
+WORKDIR /app
+COPY --from=build /app/target/*.jar app.jar
 EXPOSE 8080
-
-# Run the Spring Boot app
-CMD ["java", "-jar", "target/portfolio-0.0.1-SNAPSHOT.jar"]
+ENTRYPOINT ["java","-jar","app.jar"]
