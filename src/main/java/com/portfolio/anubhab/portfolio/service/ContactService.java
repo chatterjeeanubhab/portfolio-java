@@ -1,22 +1,18 @@
 package com.portfolio.anubhab.portfolio.service;
 
 import com.portfolio.anubhab.portfolio.model.ContactMessage;
+import com.portfolio.anubhab.portfolio.repository.ContactRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import java.util.ArrayList;
-import java.util.List;
 
 @Service
 public class ContactService {
 
-    private List<ContactMessage> messages = new ArrayList<>();
+    @Autowired
+    private ContactRepository contactRepository;
 
     public void saveMessage(ContactMessage message) {
-        messages.add(message); // simple in-memory storage
-        System.out.println("Received message from " + message.getName());
-    }
-
-    public List<ContactMessage> getMessages() {
-        return messages;
+        contactRepository.save(message);
+        System.out.println("💾 Saved message to DB: " + message);
     }
 }

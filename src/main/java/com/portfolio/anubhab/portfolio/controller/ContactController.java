@@ -20,8 +20,11 @@ public class ContactController {
 
     @PostMapping("/contact")
     public String submitContact(@ModelAttribute ContactMessage message, Model model) {
+        System.out.println("✅ Received message from " + message.getName());
+        System.out.println("Full Details: " + message);
         contactService.saveMessage(message);
         model.addAttribute("success", "Your message has been sent!");
         return "contact";
     }
+
 }
