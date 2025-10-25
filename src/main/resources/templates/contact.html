@@ -2,12 +2,12 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Contact Me</title>
-    <link rel="stylesheet" th:href="@{/style.css}">
+    <link rel="stylesheet" th:href="@{/styles.css}">
+
 </head>
 <body>
 <header>
-    <h1>Contact Me</h1>
+
     <nav>
         <a href="/">Home</a>
         <a href="/projects">Projects</a>
@@ -18,15 +18,20 @@
 </header>
 
 <main>
+
     <section class="contact-section">
         <form th:action="@{/contact}" method="post" th:object="${contactMessage}">
             <input type="text" name="name" placeholder="Your Name" required>
             <input type="email" name="email" placeholder="Your Email" required>
             <textarea name="message" placeholder="Your Message" required></textarea>
             <button type="submit" class="btn">Send Message</button>
+
+            <!-- Success message appears immediately after the button -->
+            <p th:if="${success}" th:text="${success}" class="success-message"></p>
         </form>
-        <p th:text="${success}"></p>
+
     </section>
+    <p th:if="${success}" th:text="${success}" class="success-message"></p>
 </main>
 
 <footer>

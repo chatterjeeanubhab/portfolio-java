@@ -106,7 +106,7 @@ header nav a:hover {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 25px;
+    gap: 55px;
 }
 
 /* =========================
@@ -114,15 +114,214 @@ header nav a:hover {
 ========================= */
 .project-card {
     width: 300px;
-    background-color: #fff;
-    border-radius: 15px;
-    padding: 20px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    transition: transform 0.3s, box-shadow 0.3s;
+    background-color: #fff; /* default white */
+    border-radius: 30px;
+    padding: 25px;
+    box-shadow: 0 8px 15px rgba(0,0,0,0.15);
+    transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s; /* added background-color transition */
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
 }
 
-.project-card:ho
+.project-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 52px 75px rgba(0,0,0,0.2);
+    background-color: #ff1493; /* deep pink on hover */
+}
+
+.project-card h3 {
+    margin-bottom: 10px;
+    font-weight: bold;
+    color: #222;
+    transition: color 0.3s;
+}
+
+.project-card h4 {
+    margin-bottom: 20px;
+    font-weight: 600;
+    color: #444;
+    transition: color 0.3s;
+}
+
+.project-card:hover h3,
+.project-card:hover h4 {
+    color: #fff; /* text color changes to white for contrast on deep pink */
+}
+
+/* View Details button inside project card */
+.project-view-btn {
+    background-color: #8DB600; /* apple green */
+    color: #fff;
+    font-weight: 600;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    box-shadow: 0 6px #6B8E23; /* darker green shadow for 3D effect */
+    text-decoration: none;
+    transition: all 0.3s ease;
+    user-select: none;
+}
+
+.project-view-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px #6B8E23;
+}
+
+.project-view-btn:active {
+    transform: translateY(2px);
+    box-shadow: 0 4px #6B8E23;
+}
+
+/*============================experience Cards==============================*/
+/* =========================
+   Experience Cards Styling
+========================= */
+.experience-card {
+    width: 300px;
+    background-color: #fff; /* default white */
+    border-radius: 30px;
+    padding: 25px;
+    box-shadow: 0 8px 15px rgba(0,0,0,0.15);
+    transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s; /* added background-color transition */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.experience-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 52px 75px rgba(0,0,0,0.2);
+    background-color: #ff004f; /* deep pink on hover */
+}
+
+.experience-card h3 {
+    margin-bottom: 10px;
+    font-weight: bold;
+    color: #222;
+    transition: color 0.3s;
+}
+
+.experience-card h4 {
+    margin-bottom: 20px;
+    font-weight: 600;
+    color: #444;
+    transition: color 0.3s;
+}
+
+.experience-card:hover h3,
+.experience-card:hover h4 {
+    color: #fff; /* text color changes to white for contrast on deep pink */
+}
+
+
+/* View Details button inside experience card and project card */
+.view-details-btn {
+    background-color: #8DB600; /* apple green */
+    color: #fff;
+    font-weight: 600;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    box-shadow: 0 6px #6B8E23; /* darker green shadow for 3D effect */
+    text-decoration: none;
+    transition: all 0.3s ease;
+    user-select: none;
+}
+
+.view-details-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px #6B8E23;
+}
+
+.view-details-btn:active {
+    transform: translateY(2px);
+    box-shadow: 0 4px #6B8E23;
+}
+
+    /* =========================
+       Contact Page Styling
+    ========================= */
+.contact-section {
+    padding: 120px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh;
+}
+
+.contact-section form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-width: 500px;
+    width: 100%;
+    background: #ffffff;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.contact-section form:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+}
+
+.contact-section input,
+.contact-section textarea {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    font-size: 1rem;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.contact-section input:focus,
+.contact-section textarea:focus {
+    border-color: #58a6ff;
+    box-shadow: 0 0 8px rgba(88, 166, 255, 0.4);
+    outline: none;
+}
+
+.contact-section textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+.contact-section .btn {
+    background: #8DB600; /* apple green */
+    color: #fff;
+    font-weight: 600;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.2s;
+    box-shadow: 0 6px #6B8E23; /* darker green shadow for 3D effect */
+}
+
+.contact-section .btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px #6B8E23;
+}
+
+.contact-section .btn:active {
+    transform: translateY(2px);
+    box-shadow: 0 4px #6B8E23;
+}
+
+.success-message {
+    color: #006400; /* deep green */
+    font-weight: bold;
+    margin-top: 10px;
+    text-align: center;
+    font-size: 1.1rem;
+}
+
+

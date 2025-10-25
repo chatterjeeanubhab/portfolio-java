@@ -2,12 +2,11 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>My Projects</title>
-    <link rel="stylesheet" th:href="@{/style.css}">
+    <link rel="stylesheet" th:href="@{/styles.css}">
 </head>
 <body>
 <header>
-    <h1>My Projects</h1>
+
     <nav>
         <a href="/">Home</a>
         <a href="/projects">Projects</a>
@@ -24,7 +23,7 @@
             <div class="project-card" th:each="project : ${projects}">
                 <h3 th:text="${project.name}">Project Name</h3>
                 <p th:text="${project.description}">Project Description</p>
-                <a href="#" class="btn">View Details</a>
+                <a href="#" class="view-details-btn">View Details</a>
             </div>
         </div>
     </section>

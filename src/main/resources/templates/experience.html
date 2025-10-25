@@ -2,12 +2,10 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>My Experience</title>
-    <link rel="stylesheet" th:href="@{/style.css}">
+    <link rel="stylesheet" th:href="@{/styles.css}">
 </head>
 <body>
 <header>
-    <h1>My Experience</h1>
     <nav>
         <a href="/">Home</a>
         <a href="/projects">Projects</a>
@@ -18,14 +16,23 @@
 
 <main>
     <section class="experience-section">
+        <h2>My Experience</h2>
         <div class="experience-container">
-            <div class="experience-card" th:each="exp : ${experiences}">
-                <h3 th:text="${exp.role}">Role</h3>
-                <h4 th:text="${exp.company}">Company</h4>
-                <p th:text="${exp.duration}">Duration</p>
-                <p th:text="${exp.description}">Description</p>
+            <div class="experience-card">
+                <h3>Software Engineer</h3>
+                <h4>Tata Consultancy Services</h4>
+                <!-- No dates or descriptions here -->
+                <a href="/experience/software-engineer" class="view-details-btn">View Details</a>
+            </div>
+
+            <div class="experience-card">
+                <h3>Java Developer</h3>
+                <h4>Persistent Systems</h4>
+                <!-- No dates or descriptions here -->
+                <a href="/experience/java-developer" class="view-details-btn">View Details</a>
             </div>
         </div>
+
     </section>
 </main>
 
