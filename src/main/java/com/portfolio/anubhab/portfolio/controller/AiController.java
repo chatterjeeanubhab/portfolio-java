@@ -4,7 +4,6 @@ import com.portfolio.anubhab.portfolio.service.AiService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;
-
 @RestController
 @RequestMapping("/api/ai")
 public class AiController {
@@ -16,11 +15,9 @@ public class AiController {
     }
 
     @PostMapping("/ask")
-    public Map<String, String> askAi(@RequestBody Map<String, String> request) {
-
-        String question = request.get("question");
+    public Map<String, String> askAi(@RequestBody Map<String, String> body) {
+        String question = body.get("question");
         String answer = aiService.getAnswer(question);
-
         return Map.of("answer", answer);
     }
 }

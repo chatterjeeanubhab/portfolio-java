@@ -1,26 +1,18 @@
 package com.portfolio.anubhab.portfolio.service;
 
-import com.portfolio.anubhab.portfolio.ai.AiClient;
-import com.portfolio.anubhab.portfolio.ai.PromptBuilder;
+import com.portfolio.anubhab.portfolio.ai.OpenRouterClient;
 import org.springframework.stereotype.Service;
 
 @Service
 public class AiService {
 
-    private final AiClient aiClient;
+    private final OpenRouterClient openRouterClient;
 
-    public AiService(AiClient aiClient) {
-        this.aiClient = aiClient;
+    public AiService(OpenRouterClient openRouterClient) {
+        this.openRouterClient = openRouterClient;
     }
 
     public String getAnswer(String question) {
-
-        if (question == null || question.trim().isEmpty()) {
-            return "Please ask a valid question about Anubhab.";
-        }
-
-        String prompt = PromptBuilder.buildPrompt(question);
-
-        return aiClient.ask(prompt);
+        return openRouterClient.ask(question);
     }
 }
