@@ -6,6 +6,10 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.*;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
+import org.springframework.http.client.SimpleClientHttpRequestFactory;
+
+
+
 
 @Component
 public class OpenRouterClient {
@@ -19,46 +23,53 @@ public class OpenRouterClient {
     private final RestTemplate restTemplate = new RestTemplate();
     private final ObjectMapper objectMapper = new ObjectMapper();
 
-    public String ask(String question) {
-        try {
-            HttpHeaders headers = new HttpHeaders();
-            headers.setContentType(MediaType.APPLICATION_JSON);
-            headers.setBearerAuth(apiKey);
+ public String ask(String prompt) {
 
-            // Required by OpenRouter
-            headers.add("HTTP-Referer", "http://localhost");
-            headers.add("X-Title", "Portfolio AI Chatbot");
+    SimpleClientHttpRequestFactory factory = new SimpleClientHttpRequestFactory();
+factory.setConnectTimeout(5000);
+factory.setReadTimeout(15000);
 
-            String body = """
-            {
-              "model": "nvidia/nemotron-nano-12b-v2-vl:free",
-              "messages": [
-                {
-                  "role": "system",
-                  "content": "You are an AI assistant for Anubhab Chattopadhyay's portfolio website. Answer professionally and concisely."
-                },
-                {
-                  "role": "user",
-                  "content": "%s"
-                }
-              ]
-            }
-            """.formatted(question.replace("\"", "\\\""));
+RestTemplate restTemplate = new RestTemplate(factory);
 
-            HttpEntity<String> request = new HttpEntity<>(body, headers);
-            ResponseEntity<String> response =
-                    restTemplate.postForEntity(URL, request, String.class);
 
-            JsonNode root = objectMapper.readTree(response.getBody());
-            return root
-                    .path("choices")
-                    .get(0)
-                    .path("message")
-                    .path("content")
-                    .asText();
+    HttpHeaders headers = new HttpHeaders();
+    headers.setContentType(MediaType.APPLICATION_JSON);
+    headers.setBearerAuth(apiKey);
 
-        } catch (Exception e) {
-            return "AI service is temporarily unavailable. Please try again.";
-        }
+    headers.add("HTTP-Referer", "http://localhost");
+    headers.add("X-Title", "Portfolio AI Chatbot");
+
+    String body = """
+    {
+      "model": "nvidia/nemotron-nano-12b-v2-vl:free",
+      "messages": [
+        { "role": "system", "content": "You are a professional portfolio assistant." },
+        { "role": "user", "content": "%s" }
+      ]
     }
+    """.formatted(prompt.replace("\"", "\\\""));
+
+    HttpEntity<String> request = new HttpEntity<>(body, headers);
+
+    ResponseEntity<String> response =
+            restTemplate.postForEntity(URL, request, String.class);
+
+    return extractText(response.getBody());
+}
+private String extractText(String json) {
+    try {
+        ObjectMapper mapper = new ObjectMapper();
+        JsonNode root = mapper.readTree(json);
+        return root
+                .path("choices")
+                .get(0)
+                .path("message")
+                .path("content")
+                .asText()
+                .trim();
+    } catch (Exception e) {
+        return "Sorry, I couldn’t process the response at the moment.";
+    }
+}
+
 }
