@@ -41,7 +41,7 @@ RestTemplate restTemplate = new RestTemplate(factory);
 
     String body = """
     {
-      "model": "nvidia/nemotron-nano-12b-v2-vl:free",
+      "model": "nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free",
       "messages": [
         { "role": "system", "content": "You are a professional portfolio assistant." },
         { "role": "user", "content": "%s" }
