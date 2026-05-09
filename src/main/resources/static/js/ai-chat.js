@@ -26,13 +26,27 @@ function askAi(question) {
 function askCustomQuestion() {
     const input = document.getElementById("aiQuestion");
     const q = input.value.trim();
+
     if (!q) return;
+
     input.value = "";
     askAi(q);
 }
 
 function toggleAiChat() {
     const widget = document.getElementById("ai-chat-widget");
+
     widget.style.display =
         widget.style.display === "flex" ? "none" : "flex";
 }
+
+document
+    .getElementById("aiQuestion")
+    .addEventListener("keypress", function(event) {
+
+        if (event.key === "Enter") {
+            event.preventDefault();
+            askCustomQuestion();
+        }
+
+    });

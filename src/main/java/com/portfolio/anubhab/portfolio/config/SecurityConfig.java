@@ -14,24 +14,30 @@ public class SecurityConfig {
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
 
         http
+            .csrf(csrf -> csrf.disable())
+
             .authorizeHttpRequests(auth -> auth
                 .requestMatchers(
-                    "/",                // home
+                    "/",
                     "/projects",
                     "/contact",
                     "/experience",
-                    "/auth/**",          // login, signup
-                    "/**",
-                    "/js/**"
+                    "/auth/**",
+                    "/js/**",
+                    "/api/ai/**"
                 ).permitAll()
+
                 .requestMatchers("/services/**").authenticated()
-                .anyRequest().authenticated()
+
+                .anyRequest().permitAll()
             )
+
             .formLogin(form -> form
-                .loginPage("/auth/login")   // your custom login page
+                .loginPage("/auth/login")
                 .defaultSuccessUrl("/", true)
                 .permitAll()
             )
+
             .logout(logout -> logout
                 .logoutSuccessUrl("/")
             );

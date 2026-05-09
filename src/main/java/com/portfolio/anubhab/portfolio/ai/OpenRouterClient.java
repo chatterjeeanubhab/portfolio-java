@@ -54,6 +54,9 @@ RestTemplate restTemplate = new RestTemplate(factory);
     ResponseEntity<String> response =
             restTemplate.postForEntity(URL, request, String.class);
 
+        System.out.println("STATUS: " + response.getStatusCode());
+        System.out.println("BODY: " + response.getBody());
+
     return extractText(response.getBody());
 }
 private String extractText(String json) {
