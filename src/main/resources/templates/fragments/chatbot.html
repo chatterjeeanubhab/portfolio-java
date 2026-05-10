@@ -1,0 +1,37 @@
+<div th:fragment="chatbot">
+
+    <!-- ================= FLOATING AI BUTTON ================= -->
+    <div id="ai-chat-toggle" onclick="toggleAiChat()">
+        💬 Ask AI
+    </div>
+
+    <!-- ================= AI CHAT WIDGET ================= -->
+    <div id="ai-chat-widget">
+
+        <div class="ai-header">
+            <span>Ask AI About Me</span>
+            <button onclick="toggleAiChat()">✕</button>
+        </div>
+
+        <div class="ai-body">
+
+            <p class="ai-intro">👋 Hi, I'm Anubhab's AI assistant.</p>
+
+            <div class="ai-buttons">
+                <button onclick="askAi('What are your skills?')">Skills</button>
+                <button onclick="askAi('Describe your Kafka and backend experience')">Kafka</button>
+                <button onclick="askAi('Tell me about your projects')">Projects</button>
+                <button onclick="askAi('Why should we hire you?')">Hiring Fit</button>
+            </div>
+
+            <div class="ai-input">
+                <input type="text" id="aiQuestion" placeholder="Ask freely..." />
+                <button onclick="askCustomQuestion()">Ask</button>
+            </div>
+
+            <pre id="aiResponse"></pre>
+
+        </div>
+    </div>
+
+</div>

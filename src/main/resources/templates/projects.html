@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" th:href="@{/styles.css}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
 <header>
@@ -28,7 +29,7 @@
         </div>
     </section>
 </main>
-
+<div th:replace="~{fragments/chatbot :: chatbot}"></div>
 <footer>
     <p>© 2025 Anubhab Chattopadhyay. All rights reserved.</p>
     <div class="social-links">
@@ -36,5 +37,6 @@
         <a href="https://linkedin.com/in/chatterjeeanubhab" target="_blank">LinkedIn</a>
     </div>
 </footer>
+<script src="/js/ai-chat.js"></script>
 </body>
 </html>

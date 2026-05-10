@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <title th:text="${role} + ' at ' + ${company}">Experience Detail</title>
     <link rel="stylesheet" th:href="@{/styles.css}" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
 <header>
@@ -23,7 +24,7 @@
         <p th:text="${description}"></p>
     </section>
 </main>
-
+<div th:replace="~{fragments/chatbot :: chatbot}"></div>
 <footer>
     <p>© 2025 Anubhab Chattopadhyay. All rights reserved.</p>
     <div class="social-links">
@@ -31,6 +32,6 @@
         <a href="https://linkedin.com/in/chatterjeeanubhab" target="_blank">LinkedIn</a>
     </div>
 </footer>
-
+<script src="/js/ai-chat.js"></script>
 </body>
 </html>
