@@ -1,43 +1,143 @@
-function askAi(question) {
+let isProcessing = false;
+
+function appendMessage(sender, message) {
+
     const responseBox = document.getElementById("aiResponse");
+
+    const messageDiv = document.createElement("div");
+
+    messageDiv.classList.add("chat-message");
+
+    if (sender === "You") {
+        messageDiv.classList.add("user-message");
+    } else {
+        messageDiv.classList.add("ai-message");
+    }
+
+    messageDiv.innerHTML = `
+        <div class="message-sender">${sender}</div>
+        <div class="message-text">${message}</div>
+    `;
+
+    responseBox.appendChild(messageDiv);
+
+    responseBox.scrollTop = responseBox.scrollHeight;
+}
+
+function askAi(question) {
+
+    if (isProcessing) return;
+
+    isProcessing = true;
+
     const input = document.getElementById("aiQuestion");
 
-    responseBox.innerText = "🤖 AI is thinking...";
+    const askButton = document.querySelector(".ask-btn");
+
     input.disabled = true;
 
+    if (askButton) {
+        askButton.disabled = true;
+    }
+
+    appendMessage("You", question);
+
+    const responseBox = document.getElementById("aiResponse");
+
+    const thinkingDiv = document.createElement("div");
+
+    thinkingDiv.classList.add("chat-message", "ai-message");
+
+    thinkingDiv.id = "thinkingMessage";
+
+    thinkingDiv.innerHTML = `
+        <div class="message-sender">AI</div>
+
+        <div class="message-text typing-indicator">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    `;
+
+    responseBox.appendChild(thinkingDiv);
+
+    responseBox.scrollTop = responseBox.scrollHeight;
+
     fetch("/api/ai/ask", {
+
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ question })
+
+        headers: {
+            "Content-Type": "application/json"
+        },
+
+        body: JSON.stringify({
+            question
+        })
+
     })
-        .then(res => res.json())
-        .then(data => {
-            responseBox.innerText = data.answer;
-        })
-        .catch(() => {
-            responseBox.innerText = "⚠️ Something went wrong.";
-        })
-        .finally(() => {
-            input.disabled = false;
-            input.focus();
-        });
+    .then(res => res.json())
+
+    .then(data => {
+
+        const thinking = document.getElementById("thinkingMessage");
+
+        if (thinking) {
+            thinking.remove();
+        }
+
+        appendMessage("AI", data.answer);
+    })
+
+    .catch(() => {
+
+        const thinking = document.getElementById("thinkingMessage");
+
+        if (thinking) {
+            thinking.remove();
+        }
+
+        appendMessage("AI", "⚠️ Something went wrong.");
+    })
+
+    .finally(() => {
+
+        isProcessing = false;
+
+        input.disabled = false;
+
+        if (askButton) {
+            askButton.disabled = false;
+        }
+
+        input.focus();
+    });
 }
 
 function askCustomQuestion() {
+
+    if (isProcessing) return;
+
     const input = document.getElementById("aiQuestion");
+
     const q = input.value.trim();
 
     if (!q) return;
 
     input.value = "";
+
     askAi(q);
 }
 
 function toggleAiChat() {
+
     const widget = document.getElementById("ai-chat-widget");
 
     widget.style.display =
-        widget.style.display === "flex" ? "none" : "flex";
+        widget.style.display === "flex"
+            ? "none"
+            : "flex";
 }
 
 document
@@ -45,8 +145,9 @@ document
     .addEventListener("keypress", function(event) {
 
         if (event.key === "Enter") {
+
             event.preventDefault();
+
             askCustomQuestion();
         }
-
     });

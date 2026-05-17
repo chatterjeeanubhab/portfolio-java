@@ -11,13 +11,21 @@ public class ConversationMemory {
     private final List<String> history = new LinkedList<>();
 
     public void add(String entry) {
-        history.add(entry);
-        if (history.size() > 6) {
+       history.add("[Conversation] " + entry);
+        if (history.size() > 10) {
             history.remove(0);
         }
     }
 
-    public String getConversationContext() {
-        return String.join("\n", history);
-    }
+   public String getConversationContext() {
+
+    return history.isEmpty()
+
+            ? "No previous conversation."
+
+            : """
+            Previous conversation:
+            %s
+            """.formatted(String.join("\n", history));
+}
 }

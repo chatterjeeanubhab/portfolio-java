@@ -1,49 +1,102 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+
 <head>
     <meta charset="UTF-8">
+
+    <title>Experience</title>
+
     <link rel="stylesheet" th:href="@{/styles.css}">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
 </head>
+
 <body>
+
 <header>
+
     <nav>
         <a href="/">Home</a>
         <a href="/projects">Projects</a>
         <a href="/experience">Experience</a>
         <a href="/contact">Contact</a>
     </nav>
+
 </header>
 
 <main>
+
     <section class="experience-section">
+
         <h2>My Experience</h2>
+
         <div class="experience-container">
-            <div class="experience-card">
-                <h3>Software Engineer</h3>
-                <h4>Tata Consultancy Services</h4>
-                <!-- No dates or descriptions here -->
-                <a href="/experience/software-engineer" class="view-details-btn">View Details</a>
-            </div>
+
+            <!-- TCS -->
 
             <div class="experience-card">
+
                 <h3>Java Developer</h3>
-                <h4>Persistent Systems</h4>
-                <!-- No dates or descriptions here -->
-                <a href="/experience/java-developer" class="view-details-btn">View Details</a>
+
+                <h4>Tata Consultancy Services</h4>
+
+                <a href="/experience/Java-Developer"
+                   class="view-details-btn">
+                    View Details
+                </a>
+
             </div>
+
+            <!-- Persistent -->
+
+            <div class="experience-card">
+
+                <h3>Summer Intern</h3>
+
+                <h4>Persistent Systems</h4>
+
+                <a href="/experience/Summer-Intern"
+                   class="view-details-btn">
+                    View Details
+                </a>
+
+            </div>
+
         </div>
 
     </section>
+
 </main>
+
 <div th:replace="~{fragments/chatbot :: chatbot}"></div>
+
 <footer>
-    <p>© 2025 Anubhab Chattopadhyay. All rights reserved.</p>
+
+    <p>
+        © 2025 Anubhab Chattopadhyay.
+        All rights reserved.
+    </p>
+
     <div class="social-links">
-        <a href="https://github.com/chatterjeeanubhab" target="_blank">GitHub</a> |
-        <a href="https://linkedin.com/in/chatterjeeanubhab" target="_blank">LinkedIn</a>
+
+        <a href="https://github.com/chatterjeeanubhab"
+           target="_blank">
+            GitHub
+        </a>
+
+        |
+
+        <a href="https://www.linkedin.com/in/anubhab-chattopadhyay-77947a235/"
+           target="_blank">
+            LinkedIn
+        </a>
+
     </div>
+
 </footer>
+
 <script src="/js/ai-chat.js"></script>
+
 </body>
 </html>

@@ -9,7 +9,7 @@
 <body>
 
 <header>
-    <h1>Hi, I'm Anubhab Chattopadhyay</h1>
+    
     <nav>
         <a href="/">Home</a>
         <a href="/projects">Projects</a>
@@ -20,15 +20,63 @@
 </header>
 
 <section class="hero">
-    <h2>Java & Spring Boot Developer</h2>
-    <p>Building modern, responsive, and dynamic web apps</p>
-    <a href="/projects" class="btn">View My Projects</a>
+
+    <div class="hero-content">
+
+        <p class="hero-intro fade-in">
+            HELLO, I'M
+        </p>
+
+        <h1 class="hero-name slide-up">
+            Anubhab Chattopadhyay
+        </h1>
+
+        <h2 class="typing-text">
+            Java Backend Developer
+        </h2>
+
+        <p class="hero-description fade-in-delay">
+
+            Building scalable backend systems,
+            real-time event-driven architectures,
+            and enterprise integrations using Java,
+            Spring Boot, and Apache Kafka.
+
+        </p>
+
+        <div class="hero-buttons fade-in-delay-2">
+
+            <a href="/projects" class="btn">
+                View Projects
+            </a>
+
+            <a href="/contact"
+               class="btn secondary-btn">
+                Contact Me
+            </a>
+
+        </div>
+
+    </div>
+
+    <div class="hero-background">
+
+        <div class="animated-gradient"></div>
+
+        <div class="grid-overlay"></div>
+
+    </div>
+
 </section>
 
 <div th:replace="~{fragments/chatbot :: chatbot}"></div>
 
 <footer>
     <p>© 2025 Anubhab Chattopadhyay. All rights reserved.</p>
+      <div class="social-links">
+        <a href="https://github.com/chatterjeeanubhab" target="_blank">GitHub</a> |
+        <a href="https://www.linkedin.com/in/anubhab-chattopadhyay-77947a235/" target="_blank">LinkedIn</a>
+    </div>
 </footer>
 
 <script src="/js/ai-chat.js"></script>

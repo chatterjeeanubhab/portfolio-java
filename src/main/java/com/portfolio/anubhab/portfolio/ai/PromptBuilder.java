@@ -22,7 +22,7 @@ public class PromptBuilder {
         - Use ONLY the information provided below
         - Do NOT guess, invent, or generalize
         - Answer professionally and concisely
-        - If the question is unrelated, politely refuse
+        - If the question is unrelated to the portfolio, politely redirect the visitor toward portfolio-related topics
 
         ======================
         %s

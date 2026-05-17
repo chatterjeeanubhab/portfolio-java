@@ -2,11 +2,42 @@
    General Body & Fonts
 ========================= */
 body {
+
     font-family: 'Poppins', sans-serif;
+
     margin: 0;
     padding: 0;
-    background-color: #f4f6f8;
+
+    background-color: #acadad;
+
     color: #333;
+
+    overflow-x: hidden;
+}
+body::before {
+
+    content: "";
+
+    position: fixed;
+
+    inset: 0;
+
+    background-image:
+        linear-gradient(
+            rgba(255,255,255,0.03) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(255,255,255,0.03) 1px,
+            transparent 1px
+        );
+
+    background-size: 45px 45px;
+
+    pointer-events: none;
+
+    z-index: -1;
 }
 
 /* =========================
@@ -109,6 +140,7 @@ header nav a:hover {
     gap: 55px;
 }
 
+
 /* =========================
    Project Cards (No Images)
 ========================= */
@@ -174,7 +206,35 @@ header nav a:hover {
     transform: translateY(2px);
     box-shadow: 0 4px #6B8E23;
 }
+/* =========================
+   Project Details Page
+========================= */
 
+.project-detail-section {
+    padding: 140px 40px 80px;
+    max-width: 1000px;
+    margin: auto;
+}
+
+.project-detail-section h2 {
+    font-size: 2.5rem;
+    color: #0d1117;
+    margin-bottom: 10px;
+}
+
+.project-detail-section h3 {
+    font-size: 1.3rem;
+    color: #58a6ff;
+    margin-bottom: 25px;
+    font-weight: 600;
+}
+
+.project-detail-section p {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: #333;
+    margin-bottom: 20px;
+}
 /*============================experience Cards==============================*/
 /* =========================
    Experience Cards Styling
@@ -215,6 +275,35 @@ header nav a:hover {
 .experience-card:hover h3,
 .experience-card:hover h4 {
     color: #fff; /* text color changes to white for contrast on deep pink */
+}
+/* =========================
+   Experience Details Page
+========================= */
+
+.experience-detail-section {
+    padding: 140px 40px 80px;
+    max-width: 1000px;
+    margin: auto;
+}
+
+.experience-detail-section h2 {
+    font-size: 2.5rem;
+    color: #0d1117;
+    margin-bottom: 10px;
+}
+
+.experience-detail-section h3 {
+    font-size: 1.3rem;
+    color: #58a6ff;
+    margin-bottom: 25px;
+    font-weight: 600;
+}
+
+.experience-detail-section p {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: #333;
+    margin-bottom: 20px;
 }
 
 
@@ -673,5 +762,681 @@ footer {
         padding: 30px 20px;
         font-size: 13px;
         line-height: 1.6;
+    }
+}
+
+/*================ project architecture===============*/
+.architecture-section {
+    margin-top: 50px;
+}
+
+.architecture-section h3 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    color: #0d1117;
+}
+
+.architecture-section p {
+    line-height: 1.8;
+    font-size: 1.05rem;
+}
+/*==================Responsibility==================*/
+.responsibility-section {
+    margin-top: 50px;
+}
+
+.responsibility-section h3 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    color: #0d1117;
+}
+
+.responsibility-section ul {
+    padding-left: 20px;
+}
+
+.responsibility-section li {
+    margin-bottom: 15px;
+    line-height: 1.8;
+    font-size: 1rem;
+}
+/*==================Technologies Used==================*/
+.tech-stack {
+    margin-top: 50px;
+}
+
+.tech-stack h3 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    color: #0d1117;
+}
+
+.tech-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.tech-tags span {
+    background: #0d1117;
+    color: #fff;
+    padding: 10px 18px;
+    border-radius: 30px;
+    font-size: 14px;
+    font-weight: 500;
+    transition: transform 0.3s;
+}
+
+.tech-tags span:hover {
+    transform: scale(1.08);
+}
+/* =========================
+   Experience Detail Page
+========================= */
+
+.experience-detail-section {
+
+    padding: 140px 40px 80px;
+
+    max-width: 1000px;
+
+    margin: auto;
+}
+
+.experience-detail-section h2 {
+
+    font-size: 2.5rem;
+
+    color: #0d1117;
+
+    margin-bottom: 10px;
+}
+
+.experience-dates {
+
+    font-size: 1rem;
+
+    color: #666;
+
+    margin-bottom: 30px;
+}
+
+/* =========================
+   Experience Detail Cards
+========================= */
+
+.experience-summary,
+.experience-responsibilities,
+.experience-tech-stack,
+.experience-achievements {
+
+    background: #ffffff;
+
+    padding: 35px;
+
+    margin-top: 40px;
+
+    border-radius: 24px;
+
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.experience-summary:hover,
+.experience-responsibilities:hover,
+.experience-tech-stack:hover,
+.experience-achievements:hover {
+
+    transform: translateY(-5px);
+
+    box-shadow: 0 18px 40px rgba(0,0,0,0.12);
+}
+
+/* =========================
+   Section Titles
+========================= */
+
+.experience-summary h3,
+.experience-responsibilities h3,
+.experience-tech-stack h3,
+.experience-achievements h3 {
+
+    font-size: 1.5rem;
+
+    margin-bottom: 20px;
+
+    color: #0d1117;
+}
+
+/* =========================
+   Responsibilities & Achievements
+========================= */
+
+.experience-responsibilities ul,
+.experience-achievements ul {
+
+    padding-left: 20px;
+}
+
+.experience-responsibilities li,
+.experience-achievements li {
+
+    margin-bottom: 15px;
+
+    line-height: 1.8;
+
+    font-size: 1rem;
+}
+
+/* =====================================================
+   CINEMATIC HERO SECTION
+===================================================== */
+
+.hero {
+
+    position: relative;
+
+    min-height: 100vh;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    overflow: hidden;
+
+    text-align: center;
+
+    background:
+        linear-gradient(
+            135deg,
+            #050816 0%,
+            #0d1117 40%,
+            #111827 100%
+        );
+
+    padding: 100px 20px;
+}
+
+/* =========================
+   Hero Content
+========================= */
+
+.hero-content {
+
+    position: relative;
+
+    z-index: 2;
+
+    max-width: 950px;
+}
+
+.hero-intro {
+
+    color: #58a6ff;
+
+    letter-spacing: 4px;
+
+    font-size: 1rem;
+
+    margin-bottom: 20px;
+
+    opacity: 0;
+
+    animation: fadeIn 1s ease forwards;
+}
+
+.hero-name {
+
+    font-size: 5rem;
+
+    color: white;
+
+    font-weight: 700;
+
+    margin-bottom: 25px;
+
+    opacity: 0;
+
+    transform: translateY(40px);
+
+    animation: slideUp 1s ease forwards;
+
+    animation-delay: 0.3s;
+}
+
+.typing-text {
+
+    font-size: 2.2rem;
+
+    color: #c9d1d9;
+
+    margin-bottom: 35px;
+
+    overflow: hidden;
+
+    white-space: nowrap;
+
+    display: inline-block;
+
+    width: 0;
+
+    border-right: 3px solid #58a6ff;
+
+    animation:
+        typing 4s steps(25, end) forwards,
+        blink 0.5s step-end infinite,
+        removeCursor 0s forwards;
+
+    animation-delay:
+        0s,
+        0s,
+        6s;
+}
+.hero-description {
+
+    font-size: 1.2rem;
+
+    color: #c9d1d9;
+
+    line-height: 2;
+
+    max-width: 800px;
+
+    margin: auto auto 45px;
+
+    opacity: 0;
+
+    animation: fadeIn 1s ease forwards;
+
+    animation-delay: 1.4s;
+}
+
+.hero-buttons {
+
+    display: flex;
+
+    justify-content: center;
+
+    gap: 20px;
+
+    flex-wrap: wrap;
+
+    opacity: 0;
+
+    animation: fadeIn 1s ease forwards;
+
+    animation-delay: 2s;
+}
+
+/* =========================
+   Secondary Button
+========================= */
+
+.secondary-btn {
+
+    background: transparent !important;
+
+    border: 2px solid #58a6ff;
+
+    color: #58a6ff !important;
+}
+
+.secondary-btn:hover {
+
+    background: #58a6ff !important;
+
+    color: white !important;
+}
+
+/* =========================
+   Animated Background
+========================= */
+
+.hero-background {
+
+    position: absolute;
+
+    inset: 0;
+
+    overflow: hidden;
+}
+
+.animated-gradient {
+
+    position: absolute;
+
+    width: 700px;
+    height: 700px;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(88,166,255,0.18),
+            transparent 70%
+        );
+
+    top: 50%;
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+
+    filter: blur(30px);
+
+    animation: pulseGlow 6s ease-in-out infinite;
+}
+
+.grid-overlay {
+
+    position: absolute;
+
+    inset: 0;
+
+    background-image:
+        linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+
+    background-size: 45px 45px;
+}
+
+/* =========================
+   Animations
+========================= */
+
+@keyframes slideUp {
+
+    to {
+
+        opacity: 1;
+
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+
+    to {
+
+        opacity: 1;
+    }
+}
+
+@keyframes typing {
+
+    from {
+        width: 0;
+    }
+
+    to {
+        width: 100%;
+    }
+}
+
+@keyframes blink {
+
+    50% {
+        border-color: transparent;
+    }
+}
+@keyframes removeCursor {
+
+    to {
+        border-right: none;
+    }
+}
+
+@keyframes pulseGlow {
+
+    0% {
+
+        transform:
+            translate(-50%, -50%)
+            scale(1);
+    }
+
+    50% {
+
+        transform:
+            translate(-50%, -50%)
+            scale(1.08);
+    }
+
+    100% {
+
+        transform:
+            translate(-50%, -50%)
+            scale(1);
+    }
+}
+
+/* =========================
+   Mobile Responsive
+========================= */
+
+@media screen and (max-width: 768px) {
+
+    .hero-name {
+
+        font-size: 2.8rem;
+    }
+
+    .typing-text {
+
+        font-size: 1.3rem;
+    }
+
+    .hero-description {
+
+        font-size: 1rem;
+
+        line-height: 1.8;
+    }
+
+    .hero-buttons {
+
+        flex-direction: column;
+
+        align-items: center;
+    }
+}
+/* =========================
+   CHAT AREA
+========================= */
+
+#aiResponse {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 14px;
+
+    max-height: 320px;
+
+    overflow-y: auto;
+
+    padding: 12px;
+
+    scroll-behavior: smooth;
+}
+
+/* =========================
+   MESSAGE WRAPPER
+========================= */
+
+.chat-message {
+
+    display: flex;
+
+    flex-direction: column;
+
+    width: fit-content;
+
+    max-width: 80%;
+
+    animation: fadeIn 0.2s ease;
+}
+
+/* =========================
+   USER SIDE
+========================= */
+
+.user-message {
+
+    align-self: flex-end;
+}
+
+.user-message .message-sender {
+
+    text-align: right;
+}
+
+.user-message .message-text {
+
+    background: #58a6ff;
+
+    color: white;
+
+    border-radius: 18px 18px 4px 18px;
+}
+
+/* =========================
+   AI SIDE
+========================= */
+
+.ai-message {
+
+    align-self: flex-start;
+}
+
+.ai-message .message-sender {
+
+    text-align: left;
+}
+
+.ai-message .message-text {
+
+    background: #f1f5f9;
+
+    color: #111827;
+
+    border-radius: 18px 18px 18px 4px;
+}
+
+/* =========================
+   SENDER LABEL
+========================= */
+
+.message-sender {
+
+    font-size: 0.72rem;
+
+    margin-bottom: 4px;
+
+    opacity: 0.7;
+
+    font-weight: 600;
+}
+
+/* =========================
+   MESSAGE BUBBLE
+========================= */
+
+.message-text {
+
+    padding: 12px 14px;
+
+    line-height: 1.6;
+
+    font-size: 0.95rem;
+
+    white-space: pre-wrap;
+
+    word-break: break-word;
+
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+/* =========================
+   TYPING INDICATOR
+========================= */
+
+.typing-indicator {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 6px;
+
+    padding: 14px 16px;
+}
+
+.typing-indicator span {
+
+    width: 8px;
+
+    height: 8px;
+
+    border-radius: 50%;
+
+    background: #6b7280;
+
+    animation: typingBounce 1.4s infinite ease-in-out;
+}
+
+.typing-indicator span:nth-child(1) {
+
+    animation-delay: 0s;
+}
+
+.typing-indicator span:nth-child(2) {
+
+    animation-delay: 0.2s;
+}
+
+.typing-indicator span:nth-child(3) {
+
+    animation-delay: 0.4s;
+}
+
+/* =========================
+   ANIMATIONS
+========================= */
+
+@keyframes typingBounce {
+
+    0%, 80%, 100% {
+
+        transform: scale(0.7);
+
+        opacity: 0.5;
+    }
+
+    40% {
+
+        transform: scale(1);
+
+        opacity: 1;
+    }
+}
+
+@keyframes fadeIn {
+
+    from {
+
+        opacity: 0;
+
+        transform: translateY(6px);
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform: translateY(0);
     }
 }

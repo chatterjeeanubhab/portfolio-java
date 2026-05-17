@@ -1,37 +1,141 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+
 <head>
+
     <meta charset="UTF-8" />
-    <title th:text="${role} + ' at ' + ${company}">Experience Detail</title>
-    <link rel="stylesheet" th:href="@{/styles.css}" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title th:text="|${role} at ${company}|">
+        Experience Detail
+    </title>
+
+    <link rel="stylesheet"
+          th:href="@{/styles.css}" />
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
 </head>
+
 <body>
+
 <header>
+
     <h1>Experience Details</h1>
+
     <nav>
         <a href="/">Home</a>
         <a href="/projects">Projects</a>
         <a href="/experience">Experience</a>
         <a href="/contact">Contact</a>
     </nav>
+
 </header>
 
 <main>
+
     <section class="experience-detail-section">
-        <h2 th:text="${role} + ' at ' + ${company}"></h2>
-        <p><strong>Duration: </strong><span th:text="${dates}"></span></p>
-        <p th:text="${description}"></p>
+
+        <h2 th:text="|${role} at ${company}|"></h2>
+
+        <p class="experience-dates">
+
+            <strong>Duration:</strong>
+
+            <span th:text="${dates}"></span>
+
+        </p>
+
+        <!-- Summary -->
+
+        <div class="experience-summary">
+
+            <h3>Role Summary</h3>
+
+            <p th:text="${summary}"></p>
+
+        </div>
+
+        <!-- Responsibilities -->
+
+        <div class="experience-responsibilities">
+
+            <h3>Key Responsibilities</h3>
+
+            <ul>
+
+                <li th:each="item : ${responsibilities}"
+                    th:text="${item}">
+                </li>
+
+            </ul>
+
+        </div>
+
+        <!-- Tech Stack -->
+
+        <div class="experience-tech-stack">
+
+            <h3>Technologies Worked On</h3>
+
+            <div class="tech-tags">
+
+                <span th:each="tech : ${techStack}"
+                      th:text="${tech}">
+                </span>
+
+            </div>
+
+        </div>
+
+        <!-- Achievements -->
+
+        <div class="experience-achievements">
+
+            <h3>Key Achievements</h3>
+
+            <ul>
+
+                <li th:each="achievement : ${achievements}"
+                    th:text="${achievement}">
+                </li>
+
+            </ul>
+
+        </div>
+
     </section>
+
 </main>
+
 <div th:replace="~{fragments/chatbot :: chatbot}"></div>
+
 <footer>
-    <p>© 2025 Anubhab Chattopadhyay. All rights reserved.</p>
+
+    <p>
+        © 2025 Anubhab Chattopadhyay.
+        All rights reserved.
+    </p>
+
     <div class="social-links">
-        <a href="https://github.com/chatterjeeanubhab" target="_blank">GitHub</a> |
-        <a href="https://linkedin.com/in/chatterjeeanubhab" target="_blank">LinkedIn</a>
+
+        <a href="https://github.com/chatterjeeanubhab"
+           target="_blank">
+            GitHub
+        </a>
+
+        |
+
+        <a href="https://www.linkedin.com/in/anubhab-chattopadhyay-77947a235/"
+           target="_blank">
+            LinkedIn
+        </a>
+
     </div>
+
 </footer>
+
 <script src="/js/ai-chat.js"></script>
+
 </body>
 </html>

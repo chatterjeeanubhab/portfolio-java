@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title th:text="${projectTitle}">Project Details</title>
+    <link rel="stylesheet" th:href="@{/styles.css}" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+<header>
+    <h1>Project Details</h1>
+
+    <nav>
+        <a href="/">Home</a>
+        <a href="/projects">Projects</a>
+        <a href="/experience">Experience</a>
+        <a href="/contact">Contact</a>
+    </nav>
+</header>
+
+<main>
+
+    <section class="project-detail-section">
+
+        <h2 th:text="${projectTitle}"></h2>
+
+        <h3 th:text="${projectType}"></h3>
+
+        <p th:text="${description}"></p>
+
+        <!-- Architecture -->
+        <div class="architecture-section">
+
+            <h3>Architecture Flow</h3>
+
+            <p th:text="${architectureFlow}"></p>
+
+        </div>
+
+        <!-- Contributions -->
+        <div class="responsibility-section">
+
+            <h3>Key Contributions</h3>
+
+            <ul>
+
+                <li th:each="item : ${contributions}"
+                    th:text="${item}">
+                </li>
+
+            </ul>
+
+        </div>
+
+        <!-- Tech Stack -->
+        <div class="tech-stack">
+
+            <h3>Tech Stack</h3>
+
+            <div class="tech-tags">
+
+                <span th:each="tech : ${techStack}"
+                      th:text="${tech}">
+                </span>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</main>
+
+<div th:replace="~{fragments/chatbot :: chatbot}"></div>
+
+<footer>
+
+    <p>© 2025 Anubhab Chattopadhyay. All rights reserved.</p>
+
+    <div class="social-links">
+        <a href="https://github.com/chatterjeeanubhab"
+           target="_blank">GitHub</a> |
+
+        <a href="https://www.linkedin.com/in/anubhab-chattopadhyay-77947a235/"
+           target="_blank">LinkedIn</a>
+    </div>
+
+</footer>
+
+<script src="/js/ai-chat.js"></script>
+
+</body>
+</html>
