@@ -1238,7 +1238,7 @@ footer {
 }
 
 /* =========================
-   Mobile Responsive
+   MOBILE RESPONSIVE
 ========================= */
 
 @media screen and (max-width: 768px) {
@@ -1266,10 +1266,98 @@ footer {
 
         align-items: center;
     }
+
+    .contact-section {
+
+        padding: 80px 15px;
+    }
+
+    .contact-section form {
+
+        padding: 25px 18px;
+    }
+
+    .contact-section textarea {
+
+        min-height: 180px;
+    }
+
+    /* =========================
+       MOBILE CHATBOT
+    ========================= */
+
+    #ai-chat-widget {
+
+        width: calc(100% - 20px);
+
+        left: 10px;
+
+        right: 10px;
+
+        bottom: 10px;
+
+        max-height: 85vh;
+
+        border-radius: 18px;
+    }
+
+    #ai-chat-widget.chat-expanded {
+
+        height: 78vh;
+    }
+
+    .ai-body {
+
+        display: flex;
+
+        flex-direction: column;
+
+        height: 100%;
+    }
+
+    #aiResponse {
+
+        flex: 1;
+
+        overflow-y: auto;
+
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .ai-input {
+
+        position: sticky;
+
+        bottom: 0;
+
+        background: white;
+
+        padding-top: 8px;
+
+        z-index: 2;
+    }
+
+    .ai-buttons {
+
+        overflow-x: auto;
+
+        flex-wrap: nowrap;
+
+        gap: 8px;
+
+        padding-bottom: 5px;
+    }
+
+    .ai-buttons button {
+
+        flex-shrink: 0;
+    }
 }
+
 /* =========================
    CHAT AREA
 ========================= */
+
 #aiResponse {
 
     background: #f4f6f8;
@@ -1283,7 +1371,6 @@ footer {
     flex: 1;
 
     overflow-y: auto;
-    scroll-behavior: smooth;
 
     overflow-x: hidden;
 
@@ -1299,6 +1386,7 @@ footer {
 
     gap: 10px;
 }
+
 #aiResponse:empty {
 
     flex: 0;
@@ -1309,6 +1397,7 @@ footer {
 
     margin: 0;
 }
+
 /* =========================
    MESSAGE WRAPPER
 ========================= */
@@ -1348,7 +1437,6 @@ footer {
 
     border-radius: 18px 18px 4px 18px;
 }
-
 
 /* =========================
    AI SIDE
@@ -1398,23 +1486,17 @@ footer {
 
     line-height: 1.6;
 
-    font-size: 0.95rem;
+    font-size: 14px;
+
+    font-weight: 400;
+
+    font-family: system-ui, sans-serif;
 
     white-space: pre-wrap;
 
     word-break: break-word;
 
     box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-}
-.message-text {
-
-    font-size: 14px;
-
-    line-height: 1.6;
-
-    font-weight: 400;
-
-    font-family: system-ui, sans-serif;
 }
 
 /* =========================
@@ -1497,27 +1579,10 @@ footer {
         transform: translateY(0);
     }
 }
+
 /* =========================
-   MOBILE CONTACT FIX
+   HIDDEN INTRO
 ========================= */
-
-@media screen and (max-width: 768px) {
-
-    .contact-section {
-
-        padding: 80px 15px;
-    }
-
-    .contact-section form {
-
-        padding: 25px 18px;
-    }
-
-    .contact-section textarea {
-
-        min-height: 180px;
-    }
-}
 
 .hidden-intro {
 
