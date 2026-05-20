@@ -49,27 +49,33 @@ public class ScopeValidator {
                 || q.contains("technologies");
 
         // Follow-up conversational questions
-        boolean followUp =
-                q.contains("there")
-                || q.contains("that")
-                || q.contains("those")
-                || q.contains("it")
-                || q.contains("them")
-                || q.contains("more")
-                || q.contains("explain")
-                || q.contains("how")
-                || q.contains("why")
-                || q.contains("what technologies")
-                || q.contains("what tools")
-                || q.contains("tell me more")
-                || q.contains("who are you")
-                || q.contains("your role")
-                || q.contains("what are you")
-                || q.contains("what can you do")|| q.contains("thanks")
-                || q.contains("thank you")
-                || q.contains("okay")
-                || q.contains("cool")
-                || q.contains("great");
+      boolean followUp =
+        q.contains("there")
+        || q.contains("that")
+        || q.contains("those")
+        || q.contains("it")
+        || q.contains("them")
+        || q.contains("more")
+        || q.contains("explain")
+        || q.contains("how")
+        || q.contains("why")
+        || q.contains("he")
+        || q.contains("his")
+        || q.contains("him")
+        || q.contains("know")
+        || q.contains("knows")
+        || q.contains("what technologies")
+        || q.contains("what tools")
+        || q.contains("tell me more")
+        || q.contains("who are you")
+        || q.contains("your role")
+        || q.contains("what are you")
+        || q.contains("what can you do")
+        || q.contains("thanks")
+        || q.contains("thank you")
+        || q.contains("okay")
+        || q.contains("cool")
+        || q.contains("great");
 
         return directMatch || followUp;
     }

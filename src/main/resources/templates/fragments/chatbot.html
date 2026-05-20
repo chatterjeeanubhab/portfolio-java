@@ -15,21 +15,49 @@
 
         <div class="ai-body">
 
-            <p class="ai-intro">👋 Hi, I'm Anubhab's AI assistant.</p>
+           <div id="aiResponse">
 
-            <div class="ai-buttons">
-                <button onclick="askAi('What are your skills?')">Skills</button>
-                <button onclick="askAi('Describe your Kafka and backend experience')">Kafka</button>
-                <button onclick="askAi('Tell me about your projects')">Projects</button>
-                <button onclick="askAi('Why should we hire you?')">Hiring Fit</button>
-            </div>
+    <p class="ai-intro" id="aiIntro">
 
-            <div class="ai-input">
-                <input type="text" id="aiQuestion" placeholder="Ask freely..." />
-                <button onclick="askCustomQuestion()">Ask</button>
-            </div>
+        👋 Hi, I'm Anubhab's AI assistant.
 
-            <pre id="aiResponse"></pre>
+    </p>
+
+</div>
+
+<div class="ai-input">
+
+    <input
+        type="text"
+        id="aiQuestion"
+        placeholder="Ask freely..."
+    />
+
+    <button onclick="askCustomQuestion()">
+        Ask
+    </button>
+
+</div>
+
+<div class="ai-buttons">
+
+    <button onclick="askAi('What are your skills?')">
+        Skills
+    </button>
+
+    <button onclick="askAi('Describe your Kafka and backend experience')">
+        Kafka
+    </button>
+
+    <button onclick="askAi('Tell me about your projects')">
+        Projects
+    </button>
+
+    <button onclick="askAi('Why should we hire you?')">
+        Hiring Fit
+    </button>
+
+</div>
 
         </div>
     </div>

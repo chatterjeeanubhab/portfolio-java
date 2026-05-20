@@ -2,6 +2,17 @@ let isProcessing = false;
 
 function appendMessage(sender, message) {
 
+    const widget = document.getElementById("ai-chat-widget");
+
+    widget.classList.add("chat-expanded");
+
+    const intro = document.getElementById("aiIntro");
+
+    if (intro) {
+
+        intro.remove();
+    }
+
     const responseBox = document.getElementById("aiResponse");
 
     const messageDiv = document.createElement("div");
@@ -9,8 +20,11 @@ function appendMessage(sender, message) {
     messageDiv.classList.add("chat-message");
 
     if (sender === "You") {
+
         messageDiv.classList.add("user-message");
+
     } else {
+
         messageDiv.classList.add("ai-message");
     }
 
@@ -21,7 +35,23 @@ function appendMessage(sender, message) {
 
     responseBox.appendChild(messageDiv);
 
-    responseBox.scrollTop = responseBox.scrollHeight;
+    // ONLY when USER asks question
+ if (sender === "You") {
+
+    setTimeout(() => {
+
+        const targetPosition =
+            messageDiv.offsetTop - (responseBox.clientHeight * 0.3);
+
+        responseBox.scrollTo({
+
+            top: targetPosition,
+
+            behavior: "smooth"
+        });
+
+    }, 50);
+}
 }
 
 function askAi(question) {
@@ -37,6 +67,7 @@ function askAi(question) {
     input.disabled = true;
 
     if (askButton) {
+
         askButton.disabled = true;
     }
 
@@ -62,8 +93,6 @@ function askAi(question) {
 
     responseBox.appendChild(thinkingDiv);
 
-    responseBox.scrollTop = responseBox.scrollHeight;
-
     fetch("/api/ai/ask", {
 
         method: "POST",
@@ -84,9 +113,11 @@ function askAi(question) {
         const thinking = document.getElementById("thinkingMessage");
 
         if (thinking) {
+
             thinking.remove();
         }
 
+        // NO SCROLL HERE
         appendMessage("AI", data.answer);
     })
 
@@ -95,6 +126,7 @@ function askAi(question) {
         const thinking = document.getElementById("thinkingMessage");
 
         if (thinking) {
+
             thinking.remove();
         }
 
@@ -108,6 +140,7 @@ function askAi(question) {
         input.disabled = false;
 
         if (askButton) {
+
             askButton.disabled = false;
         }
 
