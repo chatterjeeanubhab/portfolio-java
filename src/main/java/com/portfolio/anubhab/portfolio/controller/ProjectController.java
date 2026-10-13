@@ -110,4 +110,114 @@ public class ProjectController {
 
         return "project-details";
     }
+@GetMapping("/notes")
+public String notesService(Model model) {
+
+    model.addAttribute(
+            "projectTitle",
+            "Notes Service"
+    );
+
+    model.addAttribute(
+            "projectType",
+            "Spring Boot REST API for Note Management"
+    );
+
+    model.addAttribute(
+            "description",
+            "Developed a backend application to create, retrieve, update, delete, and search notes using Spring Boot, Spring Data JPA, and MySQL."
+    );
+
+    model.addAttribute(
+            "architectureFlow",
+            "Client → REST Controller → Service Layer → Repository → Spring Data JPA → MySQL"
+    );
+
+    model.addAttribute(
+            "contributions",
+            List.of(
+                    "Implemented REST APIs for creating, retrieving, updating, deleting, and searching notes.",
+                    "Designed a layered architecture using Controller, Service, and Repository components.",
+                    "Implemented DTO-based request and response handling with a dedicated mapper layer.",
+                    "Added input validation and global exception handling with standardized error responses.",
+                    "Implemented JPA auditing to automatically maintain creation and modification timestamps.",
+                    "Added pagination, sorting, and search functionality using Spring Data JPA.",
+                    "Integrated Swagger/OpenAPI for API documentation and tested endpoints using Postman."
+            )
+    );
+
+    model.addAttribute(
+            "techStack",
+            List.of(
+                    "Java",
+                    "Spring Boot",
+                    "Spring Data JPA",
+                    "Hibernate",
+                    "MySQL",
+                    "REST APIs",
+                    "Bean Validation",
+                    "Swagger/OpenAPI",
+                    "Maven",
+                    "Postman",
+                    "Git"
+            )
+    );
+
+    return "project-details";
+}
+@GetMapping("/eventbridgex")
+public String eventBridgeX(Model model) {
+
+    model.addAttribute(
+            "projectTitle",
+            "EventBridgeX"
+    );
+
+    model.addAttribute(
+            "projectType",
+            "Event-Driven Architecture using Spring Boot and Apache Kafka"
+    );
+
+    model.addAttribute(
+            "description",
+            "Developed an event-driven application using Spring Boot and Apache Kafka, implementing separate producer and consumer services to publish and process user events asynchronously."
+    );
+
+    model.addAttribute(
+            "architectureFlow",
+            "Client → Producer Service → Kafka Topic (user-events) → Consumer Service"
+    );
+
+    model.addAttribute(
+            "contributions",
+            List.of(
+                    "Developed separate Spring Boot producer and consumer services for asynchronous event processing.",
+                    "Implemented a REST API (POST /users) to publish USER_CREATED events to Kafka.",
+                    "Configured the user-events Kafka topic with three partitions for distributed event processing.",
+                    "Implemented event consumption using @KafkaListener with the user-group consumer group.",
+                    "Designed event models and payload classes to structure user-related event data.",
+                    "Configured Kafka connectivity and service orchestration using Docker Compose.",
+                    "Tested event publishing and consumption to validate the end-to-end event flow."
+            )
+    );
+
+    model.addAttribute(
+            "techStack",
+            List.of(
+                    "Java",
+                    "Spring Boot",
+                    "Apache Kafka",
+                    "Apache Kafka Producer API",
+                    "Spring Kafka",
+                    "REST APIs",
+                    "Docker",
+                    "Docker Compose",
+                    "Maven",
+                    "Postman",
+                    "Git"
+            )
+    );
+
+    return "project-details";
+}
 }
