@@ -31,7 +31,7 @@ public class ExperienceController {
 
         model.addAttribute(
                 "dates",
-                "OCT 2024 - Present"
+                "OCT 2024 - SEP 2026"
         );
 
         model.addAttribute(

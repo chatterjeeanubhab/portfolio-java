@@ -116,6 +116,78 @@ WORK STYLE:
 - Learns through hands-on system building
 - Focused on maintainability and production reliability
 
+3. Notes Service
+
+Project Type:
+- Spring Boot REST API for Note Management
+
+Details:
+- Developed REST APIs to create, retrieve, update, delete, and search notes.
+- Implemented a layered architecture using Controller, Service, and Repository components.
+- Integrated Spring Data JPA and MySQL for database persistence.
+- Implemented DTO-based request/response handling and input validation.
+- Added global exception handling with standardized error responses.
+- Implemented JPA auditing for automatic creation and modification timestamps.
+- Added pagination, sorting, and search functionality.
+- Integrated Swagger/OpenAPI for API documentation.
+
+Technologies Used:
+- Java
+- Spring Boot
+- Spring Data JPA
+- Hibernate
+- MySQL
+- REST APIs
+- Bean Validation
+- Swagger/OpenAPI
+- Maven
+- Postman
+- Git
+
+Engineering Approach:
+- Followed layered architecture and separation of concerns.
+- Focused on maintainable code and consistent API responses.
+- Implemented validation and centralized exception handling.
+- Applied pagination and sorting to support efficient data retrieval.
+- Designed reusable DTOs and mapping logic to separate API models from persistence entities.
+
+4. EventBridgeX
+
+Project Type:
+
+- Event-Driven Architecture using Spring Boot and Apache Kafka
+
+Details:
+
+- Developed separate Spring Boot producer and consumer services for asynchronous event processing.
+- Implemented a REST API (`POST /users`) to publish `USER_CREATED` events to Kafka.
+- Configured the `user-events` Kafka topic with three partitions.
+- Implemented event consumption using Spring Kafka's `@KafkaListener` with the `user-group` consumer group.
+- Designed event models and payload classes to structure user-related event data.
+- Configured Kafka connectivity using Docker Compose for local development.
+- Tested the end-to-end event flow from REST API requests to Kafka event consumption.
+
+Technologies Used:
+
+- Java
+- Spring Boot
+- Apache Kafka
+- Spring Kafka
+- REST APIs
+- Docker
+- Docker Compose
+- Maven
+- Postman
+- Git
+
+Engineering Approach:
+
+- Followed an event-driven architecture to decouple event producers from consumers.
+- Used asynchronous messaging to enable independent event publishing and processing.
+- Separated producer and consumer services to improve modularity and maintainability.
+- Configured Kafka topic partitions and consumer groups for message distribution and consumption.
+- Validated the end-to-end event flow to ensure reliable communication between services.
+
 PUBLIC LINKS:
 - GitHub: https://github.com/chatterjeeanubhab
 - LinkedIn: https://www.linkedin.com/in/anubhab-chattopadhyay-77947a235/
